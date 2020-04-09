@@ -23,6 +23,8 @@ let H= canvas.height
 let W= canvas.width
 let h= H-padding
 let rad= h/2
+let origin=[canvas.width/2,canvas.height/2]
+let points=[]
 
 function playonclick() {
     distanceratio= distratio.val()/100
@@ -48,12 +50,21 @@ function dot(centerx,centery,rad,color) {
 
 
 function draw(centerx,centery,Rad,color) {
+    let theta= Math.PI*2/n
+
+
+    
+    
+    
     let target= Math.floor(Math.random()*n)
     for(let i=0;i<n;i++){
-        context.fillStyle= color;
-        
-        
+        let currenttheta= theta*i - Math.PI/2
+        points[i]=[origin[0]+ rad * Math.cos(currenttheta), origin[1]+ rad * Math.sin(currenttheta)]
+        dot(points[i][0],points[i][1],1,cyan)
+        //target==i?red:cyan
     }
+
+    centerx= centerx + 
     requestAnimationFrame(draw)
 }
 
