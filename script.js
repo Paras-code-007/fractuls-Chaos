@@ -24,26 +24,23 @@ let W= canvas.width
 let h= H-padding
 let rad= h/2
 
-function playonclick(centerx,centery,rad,color) {
+function playonclick() {
     distanceratio= distratio.val()/100
     n= sides.val()
-    if(distanceratio<1&&distanceratio>=0&&n>0){
-        return 1
-    }
-    else{
+    if(!(distanceratio<1&&distanceratio>=0&&n>0)){
         if(n<0){
             window.alert("n should be greater than zero")
-            return 0
+            document.getElementById("sides").innerHTML=3
+            n=3
         }else{
             window.alert("try61.8")
-            return 0
-        }
+            document.getElementById("distratio").innerHTML=0.5
+        }    
     }
     draw()    
 }
 
 function dot(centerx,centery,rad,color) {
-    
     context.beginPath();
     context.fillStyle= color;
     context.arc(centerx, centery, rad, Math.PI / 180 * 0, Math.PI / 180 * 360);
