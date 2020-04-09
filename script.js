@@ -14,14 +14,17 @@ sub.click(function () {
     check()
 })
 
-function dot(centerx,centery,rad,color) {
-    
-    context.beginPath();
-    context.fillStyle= color;
-    context.arc(centerx, centery, rad, Math.PI / 180 * 0, Math.PI / 180 * 360);
-}
+let n=3
+let distanceratio=0.5
+let centerx= Math.random()*canvas.width
+let centery= Math.random()*canvas.height
+let padding=50
+let H= canvas.height
+let W= canvas.width
+let h= H-padding
+let rad= h/2
 
-function check() {
+function playonclick(centerx,centery,rad,color) {
     distanceratio= distratio.val()/100
     n= sides.val()
     if(distanceratio<1&&distanceratio>=0&&n>0){
@@ -36,16 +39,15 @@ function check() {
             return 0
         }
     }
-    draw()
+    draw()    
 }
 
-let n=3
-let distanceratio=0.5
-
-
-
-
-
+function dot(centerx,centery,rad,color) {
+    
+    context.beginPath();
+    context.fillStyle= color;
+    context.arc(centerx, centery, rad, Math.PI / 180 * 0, Math.PI / 180 * 360);
+}
 
 
 function draw(centerx,centery,Rad,color) {
@@ -57,6 +59,7 @@ function draw(centerx,centery,Rad,color) {
     }
     requestAnimationFrame(draw)
 }
+
 
 window.onload=function () {
     context.fillStyle='black';
