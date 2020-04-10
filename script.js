@@ -27,19 +27,17 @@ function playonclick() {
     
     distanceratio= distratio.val()/100
     n= sides.val()
-    //console.log(distanceratio,n)
     if(!(distanceratio<1&&distanceratio>=0&&n>=3)){
         if(n<3){
             alert("n should be greater than zero")
-            //document.getElementById("sides").innerHTML=3
+            document.getElementById("sides").innerHTML=3
             n=3
             return
         }else{
             alert("try61.8")
-            //document.getElementById("distratio").innerHTML=61.8
+            document.getElementById("distratio").innerHTML=61.8
             distanceratio=61.8
         }   
-        //console.log("test") 
     }
 
     context.fillStyle='black';
@@ -57,16 +55,11 @@ function dot(Xcenter,Ycenter,rad,color) {
 
 
 function draw() {
-    //console.log("test")
     let theta= Math.PI*2/n
     let target= Math.floor(Math.random()*n)
-    //console.log(n)
-    //console.log(theta,target)
     for(let i=0;i<n;i++){
         let currenttheta= theta*i - Math.PI/2
-        //console.log(currenttheta)
         points[i]=[origin[0]+ rad * Math.cos(currenttheta), origin[1]+ rad * Math.sin(currenttheta)]
-        //console.log("test")
         dot(points[i][0],points[i][1],10,target==i?'red':'cyan')
     }
     
@@ -82,7 +75,6 @@ function draw() {
 sub.click(playonclick)
 
 window.onload=function () {
-    //console.log("test")
     context.fillStyle='black';
     context.fillRect(0,0,canvas.width,canvas.height);
     draw()
