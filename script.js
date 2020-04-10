@@ -68,8 +68,9 @@ function draw() {
     
     dot(centerx,centery,1,'cyan')
     
-    requestAnimationFrame(draw)
-    //setTimeout(draw,1000/4)
+    //requestAnimationFrame(draw) //slow -->animation function
+    setTimeout(draw,1000/400) //fast but takes time --asunc function recursion or recursive call after some time
+    //draw() //in this option directly final outcome will get super fast -->recursion
 }
 
 sub.click(playonclick)
