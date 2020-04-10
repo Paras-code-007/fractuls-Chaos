@@ -25,6 +25,9 @@ let points=[]
 
 function playonclick() {
     
+    // context.fillStyle='black';
+    // context.fillRect(0,0,canvas.width,canvas.height);
+
     distanceratio= distratio.val()/100
     n= sides.val()
     if(!(distanceratio<1&&distanceratio>=0&&n>=3)){
